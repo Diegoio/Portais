@@ -27,7 +27,7 @@ Clicar em Entrar
 Preencher campos
     Input Text                      ${input_email}      ROBERTO.TESTEPROD@PCS.COM               
 
-    Input Text                      ${input_password}   123              
+    Input Text                      ${input_password}   123    
 
 Fechar o browser
     Close Browser

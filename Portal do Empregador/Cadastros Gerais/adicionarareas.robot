@@ -60,27 +60,27 @@ Clicar em Cadastros Gerais
 Clicar em Áreas 
 
     Click Element                           ${BTN_AREAS}
-    Sleep                                   5s
+                                       
 Clicar em Adicionar
 
     Click Element                           ${ADICIONAR}
 
 Colocar o Nome
 
-    Input Text                              ${input_nome}               aaaaaaaaaaaaaaaa
-    Sleep                                   5s
+    Input Text                              ${input_nome}               aaaaaaaaaaaaaaaa     
+                            
 Colocar a Descrição
 
     Input Text                              ${input_descricao}            bbbbbbbbbbbbbbbb
-    Sleep                                   5s
+                                      
 Unidade Administrativa
 
     Click Element                           ${UNIDADE_ADM} 
-    Sleep                                   5s
+                                    
 Clicar em CIRCULO
 
     Click Element                            ${CIRCULO}
-    Sleep                                    5s
+                                   
 Clicar em POLIGONO
 
     Click Element                            ${POLIGONO}
@@ -88,19 +88,19 @@ Clicar em POLIGONO
 Colocar o Endereço 
 
     Input Text                               ${input_endereço}      Rua Verde, 19 Jardim Prainha
-    Sleep                                    5s
+                                  
 Pesquisa o Endereço
 
     Click Element                            ${PESQUISA_ENDEREÇO} 
-    Sleep                                    5s
+                                  
 Clicar no Local do MAPS 
 
     Click Element                            ${CLICAR_NO_MAPS}
-    Sleep                                    5s
+                                  
 Descrição do Local
 
     Input Text                              ${input_descriçao_local}        aaaaaaaaaaaaaaaaaa
-    Sleep                                   5s
+                               
 Clicar em SALVAR
 
     Click Element                          ${SALVAR} 
