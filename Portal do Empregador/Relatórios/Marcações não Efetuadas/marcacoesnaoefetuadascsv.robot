@@ -1,6 +1,5 @@
 *** Settings ***
 Library        SeleniumLibrary
-Library    Process
 
 *** Variables ***
 
@@ -12,14 +11,13 @@ ${input_email}                          xpath=//input[@id='Email']
 ${input_password}                       xpath=//input[@id='Senha']
 ${BTN_ENTRAR2}                          css=.fourth
 ${RELATORIOS}                           css=#mnRelatorio > a
-${AFD}                                  xpath=//*[@id="mnAfd"]/a/span
-${REPV_TODOS}                           xpath=//*[@id="Relogios"]/option[1]
-${PERIODOS}                             xpath=//*[@id="Per_odos"]/option[6]
-${GERAR_RELATORIO_1510}                 xpath=//*[@id="form0"]/footer/button
-${CONFIRMA_GERAR_RELATORIO_1510}        css=#AFD1510Modal .btn-primary
-${BAIXAR_ARQUIVO}                       xpath=//*[@id="resultadoMarcacoes"]/footer/div
-${SALVAR}                               xpath=//button[@id="introjs_save"]
-
+${MARCACOES_NAO_EFETUADAS}              xpath=//*[@id="mnMarcacoesNaoEfetuadas"]/a
+${FUNCIONARIOS}                         xpath=//*[@id="Trabalhadores"]/option[78]
+${CSV}                                  xpath=//*[@id="form0"]/fieldset[2]/div/label[2]/i
+${DATA_INICIO}                          xpath=//input[@id="inicioBusca"]
+${DATA_FIM}                             xpath=//input[@id="fimBusca"]
+${GERAR}                                xpath=//*[@id="form0"]/footer/button
+${BAIXAR}                               xpath=//*[@id="resultadoMarcacoes"]/footer/div
 
 *** Keywords ***
 Acessar a pagina pontocertificado
@@ -52,34 +50,36 @@ Clicar em Relatorios
     Click Element                                ${RELATORIOS}
     Sleep                                        5s
 
-Clicar em AFD 
+Clicar em Cartão de Ponto Detalhado 
 
-    Click Element                                ${AFD}
+    Click Element                                ${MARCACOES_NAO_EFETUADAS}
 
-Seleciona Todos os Relógios
+Ir em Funcionarios 
 
-    Click Element                                ${REPV_TODOS}
+    Click Element                                ${FUNCIONARIOS}
 
-Clicar em Periodos 
+Clicar em CSV
 
-    Click Element                                ${PERIODOS}
+    Click Element                                ${CSV}
 
-Gerar Relatorios
+Data Inicial
 
-    Click Element                                ${GERAR_RELATORIO_1510}
-    Sleep    5s
-Confirmar geração de Relatorios
+    Input Text                                   ${DATA_INICIO}                 01/01/2023
 
-    Click Element                                ${CONFIRMA_GERAR_RELATORIO_1510}
-    Sleep                                        60s
+Data Final
 
-Clicar em Baixar
+    Input Text                                   ${DATA_FIM}                    01/04/2023
 
-    Click Element                                ${BAIXAR_ARQUIVO}
-Clicar em SALVAR
+Gerar Relatorio 
 
-    Click Element                                ${SALVAR} 
+    Click Element                                ${GERAR}
+    Sleep                                        40s
+BAIXAR
 
+    Click Element                                ${BAIXAR}
+    Sleep                                        10s
+
+#COLOCAR SLEEP PARA VER SE VAI GERAR
 *** Test Cases ***
 Abrir Site
     Acessar a pagina pontocertificado
@@ -88,10 +88,10 @@ Abrir Site
     Preencher campos
     Clicar em Entrar2
     Clicar em Relatorios
-    Clicar em AFD
-    Seleciona Todos os Relógios
-    Clicar em Periodos 
-    Gerar Relatorios
-    Confirmar geração de Relatorios
-    Clicar em Baixar 
-    #Clicar em SALVAR
+    Clicar em Cartão de Ponto Detalhado
+    Ir em Funcionarios
+    Clicar em CSV
+    Data Inicial
+    Data Final
+    Gerar Relatorio
+    BAIXAR
