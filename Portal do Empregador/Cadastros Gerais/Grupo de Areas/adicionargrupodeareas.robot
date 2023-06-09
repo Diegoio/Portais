@@ -56,7 +56,7 @@ Clicar em Adicionar
     Click Element                           ${ADICIONAR}
 Inserir a Descrição
 
-    Input Text                               ${DESCRIÇAO}    aaaaaaaaaaaaaaa
+    Input Text                               ${DESCRIÇAO}    TESTE
     Sleep                                    5s
 Clicar em SALVAR
 
