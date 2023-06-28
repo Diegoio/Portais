@@ -13,6 +13,8 @@ ${RELATORIOS}                           xpath=//*[@id="sidebarnav"]/li[9]/a/span
 ${FUNC_ATIVOS}                          xpath=//*[@id="sidebarnav"]/li[9]/ul/li[1]/a
 ${input_empresa}                        xpath=//*[@id="searchInput"]
 ${FILTRAR}                              xpath=//*[@id="main-wrapper"]/div/div/div[1]/div[1]/div/div[2]/form/div/div[3]/div/div/button[1]
+${CSV}                                  xpath=//*[@id="lista_wrapper"]/div[1]/button[2]
+
 
 *** Keywords ***
 Acessar a pagina Portal dos Parceiros
@@ -22,7 +24,7 @@ Acessar a pagina Portal dos Parceiros
 
 Clicar em Acessar
 
-    Click Element                                ${BTN_ACESSAR}      
+    Click Element                               ${BTN_ACESSAR}      
 
 Preencher campos
 
@@ -47,7 +49,12 @@ Buscar Empresa
     Input Text                                  ${input_empresa}                pontocertificado
    
 Filtrar
-    Click Element                                   ${FILTRAR}
+    
+    Click Element                               ${FILTRAR}
+    Sleep    5
+CSV
+
+    Click Element                               ${CSV}
     
 *** Test Cases ***
 Abrir Site
@@ -60,4 +67,4 @@ Abrir Site
     Clicar em Funcionarios Ativos
     Buscar Empresa
     Filtrar
-    
+    CSV

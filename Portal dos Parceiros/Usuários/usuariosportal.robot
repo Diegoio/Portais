@@ -9,9 +9,8 @@ ${BTN_ACESSAR}                          xpath=//a[@href='/Admin']
 ${input_email}                          xpath=//input[@id='Email']
 ${input_password}                       xpath=//input[@id='Senha']
 ${BTN_ENTRAR}                           xpath=//button[@type='submit']
-${TECNICO}                              xpath=//ul[@id='sidebarnav']/li[7]/a
-${LOGS_FLUTTER}                         xpath=//*[@id="sidebarnav"]/li[7]/ul/li[3]/a
-
+${USUARIOS}                             xpath=//*[@id="sidebarnav"]/li[10]/a
+${USU_PORTAL}                           xpath=//*[@id="sidebarnav"]/li[10]/ul/li[1]/a
 
 *** Keywords ***
 Acessar a pagina Portal dos Parceiros
@@ -21,7 +20,7 @@ Acessar a pagina Portal dos Parceiros
 
 Clicar em Acessar
 
-    Click Element                               ${BTN_ACESSAR}
+    Click Element                               ${BTN_ACESSAR}      
 
 Preencher campos
 
@@ -33,16 +32,15 @@ Clicar em Entrar
 
     Click Element                               ${BTN_ENTRAR}
 
-Clicar em TECNICO
+Clicar em Usuarios 
 
-    Click Element                               ${TECNICO}
-    Sleep    5
-Clicar em Logs Flutter
+    Click Element                               ${USUARIOS}
 
-    Scroll Element Into View                    ${LOGS_FLUTTER}
-    Click Element                               ${LOGS_FLUTTER}
-    Sleep    5
-
+Clicar em Usuarios Portal
+    
+    Scroll Element Into View                    ${USU_PORTAL}
+    Click Element                               ${USU_PORTAL}
+    
 *** Test Cases ***
 Abrir Site
     Acessar a pagina Portal dos Parceiros
@@ -50,6 +48,5 @@ Abrir Site
     Clicar em Entrar
     Preencher campos
     Clicar em Entrar
-    Clicar em TECNICO
-    Clicar em Logs Flutter
-   
+    Clicar em Usuarios
+    Clicar em Usuarios Portal

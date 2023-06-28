@@ -44,7 +44,8 @@ Clicar em TECNICO
     Click Element                               ${TECNICO}
     Sleep    5
 Clicar em Senha ADM
-
+    
+    Scroll Element Into View                    ${SENHA_ADM}
     Click Element                               ${SENHA_ADM}
     Sleep    5
 
